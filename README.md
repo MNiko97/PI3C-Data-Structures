@@ -26,7 +26,7 @@
 <p><strong>Avantages :</strong> Plus efficace que le tris par insertion classique.</p>
 <p><strong>Inconvénients :</strong> Algorithme plus complexe. Pas aussi efficace que d’autres méthodes de tris comme <code>quicksort</code>.</p>
 <h1 id="heap-sort">3. Heap Sort</h1>
-<p><strong>Principe :</strong> Se base sur une vision arbre binaire du vecteur. Le premier élément du vecteur est la racine de l’arbre virtuel (indice 0). Le fils gauche se trouve à l’indice 1 et le fils droit à l’indice 2. Le fils gauche du fils gauche de la racine est en position 3 et le fils droit du fils gauche de la racine est à l’indice 4, etc. Si on prend un élément d’indice i, le fils gauche se trouve à l’indice <code>2*i+1</code> et le fils droit à l’indice <code>2*i+2</code>. De même, le père de l’élément à la position i sera à la position <code>(i-1)/2</code> (division entière évidemment). On peut donc considérer un vecteur comme étant un arbre binaire que l’on peut parcourir en descendant ou en montant. Un Heap (tas en français) est un arbre qui respecte <strong>une seule règle : le père est toujours plus grand que ses deux fils.</strong></p>
+<p><strong>Principe :</strong> Se base sur une vision arbre binaire du vecteur. Le premier élément du vecteur est la racine de l’arbre virtuel (indice 0). Le fils gauche se trouve à l’indice 1 et le fils droit à l’indice 2. Le fils gauche du fils gauche de la racine est en position 3 et le fils droit du fils gauche de la racine est à l’indice 4, etc. Si on prend un élément d’indice i, le fils gauche se trouve à l’indice <code>2*i+1</code> et le fils droit à l’indice <code>2*i+2</code>. De même, le père de l’élément à la position i sera à la position <code>(i-1)/2</code> (division entière évidemment). On peut donc considérer un vecteur comme étant un arbre binaire que l’on peut parcourir en descendant ou en montant. Un Heap (tas en français) est un arbre qui respecte <strong>une seule règle :</strong> <code>le père est toujours plus grand que ses deux fils.</code></p>
 <p>Les étape 2 et 3 ci-dessous sont répétées jusqu’à ce que le vecteur soit complétement trié :</p>
 <ol>
 <li>Le tri Heap consistera à transformer le vecteur cet arbre arbre virtuel en respectant la propriété Heap.</li>
@@ -35,10 +35,10 @@
 </ol>
 <p><img src="https://i.ibb.co/fY8rMXW/Heap-Sort.png" alt="enter image description here"></p>
 <h1 id="quicksort">4. QuickSort</h1>
-<p><strong>Principe :</strong> consiste à choisir, parmi les données à trier, une valeur pivot et à s’arranger pour organiser les données selon quelles sont plus petites ou plus grande que cette valeur. A la fin de ce processus, le tableau à trier est virtuellement divisé en deux parties, d’une part les <code>x valeurs inférieures</code> au pivot et d’autre part les <code>y valeurs supérieures</code> à ce pivot. On recommence ensuite ce processus sur les <code>x premières valeurs</code> (choix d’une nouvelle valeur pivot), ce qui conduira à <em>"couper</em>" en deux ce demi- tableau et ainsi de suite jusqu’à ce que la taille du demi tableau ne contienne plus qu’un seul élément. On fait la même chose sur les <code>y valeurs</code> résultant du premier découpage.</p>
+<p><strong>Principe :</strong> Consiste à choisir, parmi les données à trier, une valeur pivot et à s’arranger pour organiser les données selon quelles sont plus petites ou plus grande que cette valeur. A la fin de ce processus, le tableau à trier est virtuellement divisé en deux parties, d’une part les <code>x valeurs inférieures</code> au pivot et d’autre part les <code>y valeurs supérieures</code> à ce pivot. On recommence ensuite ce processus sur les <code>x premières valeurs</code> (choix d’une nouvelle valeur pivot), ce qui conduira à <em>"couper</em>" en deux ce demi-tableau et ainsi de suite jusqu’à ce que la taille du <em>"demi-demi-…-demi-tableau</em> ne contienne plus qu’un seul élément. On fait la même chose sur les <code>y valeurs</code> résultant du premier découpage. La vidéo <a href="https://youtu.be/PgBzjlCcFvc?t=30">suivante</a> illustre le principe.</p>
 <p><strong>Avantages :</strong> Complexité <code>O(n log(n))</code> ce qui est optimal pour un tri par comparaison. Dans le pire des cas la complexité est quadratique.<br>
-Efficace pour des des large quantité de données.<br>
-<strong>Inconvénients :</strong> Ne tire aucun avantage à ce que le vecteur soit en partie trié.</p>
+Efficace pour des des large quantité de données.</p>
+<p><strong>Inconvénients :</strong> Ne tire aucun avantage à ce que le vecteur soit en partie trié.</p>
 <h1 id="single-linked-list">5. Single Linked List</h1>
 <p><strong>Principe :</strong> Structure de données pouvant contenir plusieurs éléments. Chaque élément possède un pointeur vers l’élément suivant. La liste est un pointeur vers le premier élément de la liste appelé <strong>“Head”</strong>. Le dernier élément pointe vers une adresse spécifique pour signifier la fin de la liste, <strong>“Tail”</strong>.</p>
 <p><strong>Avantage :</strong> Permet de stocker des valeurs de même type mais a une taille variable même après création. On peut y insérer ou supprimer des élèments.</p>
@@ -57,25 +57,34 @@ On a les trois pointeurs suivant : <code>*head</code>, <code>*tail</code> et <co
 <li>Supression en début de liste : on fait pointer <code>*head</code> vers l’élément juste après. <img src="https://i.ibb.co/wgbFWNs/List-remove-first.png" alt="enter image description here"></li>
 <li>Suppression en fin de liste : comme on n’a pas de pointeur sur l’avant dernier élément, on va devoir parcourir la liste séquentiellement jusqu’a ce que le prochain élement est <code>NULL</code>. Ainsi on peut selectionner l’avant dernier élément et le faire pointer sur <code>NULL</code>. <img src="https://i.ibb.co/p3DDN1s/List-remove-end.png" alt="enter image description here"></li>
 </ol>
-<h1 id="double-linked-list">6. Double Linked List</h1>
-<p><strong>Principe :</strong><br>
-<strong>Avantages :</strong><br>
-<strong>Inconvénients :</strong><br>
-<strong>Principe des listes circulaires :</strong></p>
+<h1 id="double-linked-list-and-circular-list">6. Double Linked List and Circular List</h1>
+<h2 id="double-linked-list">6.1 Double Linked List</h2>
+<p><strong>Principe :</strong> Lorsque chaque élément d’une liste pointe à la fois vers l’élément suivant et précédent, nous parlons alors de liste doublement chainée.</p>
+<p><img src="https://i.ibb.co/jfpvsHY/Double-linked-list.png" alt="enter image description here"></p>
+<p><strong>Avantages :</strong> L’accès peut se faire indifféremment dans les deux sens. Cela permet d’opérer une insertion avant ou après un élément, sans nécessairement disposer d’un pointeur sur un voisin, alors qu’une liste simplement chaînée n’autorise une insertion qu’à une seule position par rapport à un élément.</p>
+<p><strong>Inconvénients :</strong> Cette structure est plus coûteuse en mémoire (un pointeur supplémentaire par élément) et en nombre d’instructions pour la mise à jour : une insertion coûte quatre copies de pointeurs, contre deux dans le cas d’une liste simplement chaînée.</p>
+<h2 id="circular-list">6.2 Circular List</h2>
+<p><strong>Principe :</strong> Une liste cyclique (ou circulaire) est créée lorsque le dernier élément possède une référence vers le premier élément (si la liste est doublement chaînée, alors le premier élément possède aussi une référence vers le dernier). L’utilisation de ce type de liste requiert des précautions pour éviter des parcours infinis, par exemple, lors d’une recherche vaine d’élément.</p>
+<p><img src="https://i.ibb.co/TTnkpK6/Circular-linked-list.png" alt="enter image description here"></p>
 <h1 id="sparse-matrix">7. Sparse Matrix</h1>
 <p><strong>Le problème :</strong> Ce sont par définitions des grands tableaux contenant un grand nombre de case vide. Un problème de gaspillage de place apparait lorsque l’on essaye de regrouper un grand nombre d’informations et de catégories dans un seul tableau. Toute les cases ne peuvent être remplie.</p>
 <p><strong>Solutions :</strong></p>
 <ul>
 <li>Une première solution est de diviser la matrice en deux sous matrices. En effet en divisant le problème on va se retrouver avec des sous matrices moins vide. <a href="https://www.youtube.com/watch?v=V3TAtTtC4Xs">https://www.youtube.com/watch?v=V3TAtTtC4Xs</a></li>
 <li>La deuxième solution, plus complexe, est d’assigner à chaque ligne et colone un pointeur vers un liste qui peut elle même pointer vers d’autre liste.</li>
-<li></li>
 </ul>
 <h1 id="stack-and-queue">8. Stack and Queue</h1>
-<p><strong>Principe :</strong><br>
-<strong>Implementation :</strong></p>
+<p><strong>Principe :</strong> Variante des listes chainées ou on ne peut ajouter des nouveaux éléments seulement au début ou à la fin. Ils possèdent la même structure avec un pointeur vers l’élément suivant dont le dernier pointe vers <code>NULL</code>.</p>
 <ul>
-<li><strong>Vecteur :</strong></li>
-<li><strong>Liste :</strong></li>
+<li>Piles (Stack) : <code>Last In First Out</code>. On peut uniquement enlever le dernier élément ajouté.<br>
+<img src="https://i.ibb.co/SRpYDKk/Piles.png" alt="enter image description here"></li>
+<li>Files (Queue) : <code>First In First Out</code>. On peut uniquement enlever le premiere élément ajouté.<br>
+<img src="https://i.ibb.co/vHYdBc4/Files.png" alt="enter image description here"></li>
+</ul>
+<p><strong>Implementation :</strong></p>
+<ul>
+<li><strong>Vecteur :</strong> ?</li>
+<li><strong>Liste :</strong> ?</li>
 </ul>
 <h1 id="binary-search-trees-1">9. Binary Search Trees (1)</h1>
 <p><strong>Principe :</strong> Lorsqu’on construit un arbre binaire on le fait de manière à ce qu’il soit trié, sinon aucun intérets. On insère les élements dans l’arbre dans l’ordre dans lequel ils arrivent et lorsque la case n’est pas libre, si on est plus petit que la case on place l’élèment à gauche et inversement à droite. Chaque élément on biensur un pointeur vers leur enfant de gauche et droite. Le pointeur est <code>NULL</code> si il n’a pas d’enfant.</p>
