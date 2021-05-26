@@ -20,8 +20,13 @@
 </ul>
 <p><strong>Avantage :</strong> Imbattable si le vecteur est déjà trié au départ et très rapide si le vecteur à trier est trié en partie.</p>
 <h1 id="shell-sort">2. Shell Sort</h1>
+<p><strong>Principe :</strong> Le tri shell se base sur le tri par insertion en essayant de minimiser son défaut de compléxité <code>O(n²)</code>. Le principe sera diviser le vecteur en <code>h sous vecteurs</code> afin d’effectuer des tris par sélection sur des plus petites portions. Une fois les <code>h tris</code> réalisé on vient reformer le vecteur initiale qui sera dans un état un peu plus trié. Comme le tris pas sélection est plus efficace dans ces situation la on peut obtenir des complixité entre <code>O(n²)</code> et <code>O(n log²(n))</code>.</p>
+<p><img src="https://i.ibb.co/jyBKKyC/Shell-sort.png" alt="enter image description here"></p>
+<p><strong>Choix de la valeur h :</strong> Habituellement, on utilise une formule pour calculer les valeurs de <code>h</code> des passes successives. Dans la pratique, on utilise une série de <code>h</code> décroissant en choisissant des valeurs qui assure un bon brassage des données à trier. Il faut éviter 1, 2, 4, 8, 16, … ou 1, 3, 9, 27, … parce qu’avant la dernière passe, les données des deux ou trois sous vecteurs de la passe précédente n’ont jamais été confrontées et il reste trop de désordre pour la dernière passe.</p>
+<p><strong>Avantages :</strong> Plus efficace que le tris par insertion classique.</p>
+<p><strong>Inconvénients :</strong> Algorithme plus complexe. Pas aussi efficace que d’autres méthodes de tris comme <code>quicksort</code>.</p>
 <h1 id="heap-sort">3. Heap Sort</h1>
-<p><strong>Principe :</strong> Se base sur une vision arbre binaire du vecteur. Le premier élément du vecteur est la racine de l’arbre virtuel (indice 0). Le fils gauche se trouve à l’indice 1 et le fils droit à l’indice 2. Le fils gauche du fils gauche de la racine est en position 3 et le fils droit du fils gauche de la racine est à l’indice 4, etc. Si on prend un élément d’indice i, le fils gauche se trouve à l’indice 2<em>i+1 et le fils droit à l’indice 2</em>i+2. De même, le père de l’élément à la position i sera à la position (i-1)/2 (division entière évidemment). On peut donc considérer un vecteur comme étant un arbre binaire que l’on peut parcourir en descendant ou en montant. Un Heap (tas en français) est un arbre qui respecte <strong>une seule règle : le père est toujours plus grand que ses deux fils.</strong></p>
+<p><strong>Principe :</strong> Se base sur une vision arbre binaire du vecteur. Le premier élément du vecteur est la racine de l’arbre virtuel (indice 0). Le fils gauche se trouve à l’indice 1 et le fils droit à l’indice 2. Le fils gauche du fils gauche de la racine est en position 3 et le fils droit du fils gauche de la racine est à l’indice 4, etc. Si on prend un élément d’indice i, le fils gauche se trouve à l’indice <code>2*i+1</code> et le fils droit à l’indice <code>2*i+2</code>. De même, le père de l’élément à la position i sera à la position <code>(i-1)/2</code> (division entière évidemment). On peut donc considérer un vecteur comme étant un arbre binaire que l’on peut parcourir en descendant ou en montant. Un Heap (tas en français) est un arbre qui respecte <strong>une seule règle : le père est toujours plus grand que ses deux fils.</strong></p>
 <p>Les étape 2 et 3 ci-dessous sont répétées jusqu’à ce que le vecteur soit complétement trié :</p>
 <ol>
 <li>Le tri Heap consistera à transformer le vecteur cet arbre arbre virtuel en respectant la propriété Heap.</li>
@@ -30,6 +35,10 @@
 </ol>
 <p><img src="https://i.ibb.co/fY8rMXW/Heap-Sort.png" alt="enter image description here"></p>
 <h1 id="quicksort">4. QuickSort</h1>
+<p><strong>Principe :</strong> consiste à choisir, parmi les données à trier, une valeur pivot et à s’arranger pour organiser les données selon quelles sont plus petites ou plus grande que cette valeur. A la fin de ce processus, le tableau à trier est virtuellement divisé en deux parties, d’une part les <code>x valeurs inférieures</code> au pivot et d’autre part les <code>y valeurs supérieures</code> à ce pivot. On recommence ensuite ce processus sur les <code>x premières valeurs</code> (choix d’une nouvelle valeur pivot), ce qui conduira à <em>"couper</em>" en deux ce demi- tableau et ainsi de suite jusqu’à ce que la taille du demi tableau ne contienne plus qu’un seul élément. On fait la même chose sur les <code>y valeurs</code> résultant du premier découpage.</p>
+<p><strong>Avantages :</strong> Complexité <code>O(n log(n))</code> ce qui est optimal pour un tri par comparaison. Dans le pire des cas la complexité est quadratique.<br>
+Efficace pour des des large quantité de données.<br>
+<strong>Inconvénients :</strong> Ne tire aucun avantage à ce que le vecteur soit en partie trié.</p>
 <h1 id="single-linked-list">5. Single Linked List</h1>
 <p><strong>Principe :</strong> Structure de données pouvant contenir plusieurs éléments. Chaque élément possède un pointeur vers l’élément suivant. La liste est un pointeur vers le premier élément de la liste appelé <strong>“Head”</strong>. Le dernier élément pointe vers une adresse spécifique pour signifier la fin de la liste, <strong>“Tail”</strong>.</p>
 <p><strong>Avantage :</strong> Permet de stocker des valeurs de même type mais a une taille variable même après création. On peut y insérer ou supprimer des élèments.</p>
@@ -49,6 +58,10 @@ On a les trois pointeurs suivant : <code>*head</code>, <code>*tail</code> et <co
 <li>Suppression en fin de liste : comme on n’a pas de pointeur sur l’avant dernier élément, on va devoir parcourir la liste séquentiellement jusqu’a ce que le prochain élement est <code>NULL</code>. Ainsi on peut selectionner l’avant dernier élément et le faire pointer sur <code>NULL</code>. <img src="https://i.ibb.co/p3DDN1s/List-remove-end.png" alt="enter image description here"></li>
 </ol>
 <h1 id="double-linked-list">6. Double Linked List</h1>
+<p><strong>Principe :</strong><br>
+<strong>Avantages :</strong><br>
+<strong>Inconvénients :</strong><br>
+<strong>Principe des listes circulaires :</strong></p>
 <h1 id="sparse-matrix">7. Sparse Matrix</h1>
 <p><strong>Le problème :</strong> Ce sont par définitions des grands tableaux contenant un grand nombre de case vide. Un problème de gaspillage de place apparait lorsque l’on essaye de regrouper un grand nombre d’informations et de catégories dans un seul tableau. Toute les cases ne peuvent être remplie.</p>
 <p><strong>Solutions :</strong></p>
@@ -58,6 +71,12 @@ On a les trois pointeurs suivant : <code>*head</code>, <code>*tail</code> et <co
 <li></li>
 </ul>
 <h1 id="stack-and-queue">8. Stack and Queue</h1>
+<p><strong>Principe :</strong><br>
+<strong>Implementation :</strong></p>
+<ul>
+<li><strong>Vecteur :</strong></li>
+<li><strong>Liste :</strong></li>
+</ul>
 <h1 id="binary-search-trees-1">9. Binary Search Trees (1)</h1>
 <p><strong>Principe :</strong> Lorsqu’on construit un arbre binaire on le fait de manière à ce qu’il soit trié, sinon aucun intérets. On insère les élements dans l’arbre dans l’ordre dans lequel ils arrivent et lorsque la case n’est pas libre, si on est plus petit que la case on place l’élèment à gauche et inversement à droite. Chaque élément on biensur un pointeur vers leur enfant de gauche et droite. Le pointeur est <code>NULL</code> si il n’a pas d’enfant.</p>
 <p><img src="https://i.ibb.co/BKF6Ny6/Binary-Search-Tree.png" alt="enter image description here"></p>
@@ -81,11 +100,19 @@ On a les trois pointeurs suivant : <code>*head</code>, <code>*tail</code> et <co
 <p>Une fois les trois actions <code>LVR</code> executés pour l’èlèment le plus de l’arbre on passe à l’élément qui le précède. On peut direcrement passer à l’action <code>VISIT</code> puisque celui-ci à déja utilisé son <code>LEFT</code>. Il executera ensuite son <code>RIGHT</code> pour descendre dans ses enfants. Ces derniers executeront leur <code>LVR</code> jusqu’a remonter chez son parent.</p>
 <p>On remonte ainsi jusqu’à la racine qui une fois “visité” passera à son <code>RIGHT</code> pour à son tour faire executer les <code>LVR</code> de tout ses enfants.</p>
 <h1 id="binary-search-trees-2">10. Binary Search Trees (2)</h1>
+<p><strong>Manipulation par rotation :</strong><br>
+<strong>Déséquilibrage :</strong></p>
+<ul>
+<li><strong>Problème :</strong></li>
+<li><strong>Solution :</strong></li>
+</ul>
 <h1 id="avl-trees">11. AVL Trees</h1>
 <p><strong>Principe :</strong> c’est un algorithme qui permet de rendre un arbre équilibré en associant aux différents noeuds des niveaux de désiquilibrede l’arbre. <code>+n</code> et <code>-n</code> lors d’un déséquilibre à droite ou à gauche et <code>0</code> lorsque le noeud est équilibré. À partir d’un déséquilibre de <code>+2</code>ou <code>-2</code>, l’arbre va effectuer une rotation classique afin de rééquilibrer.</p>
 <p><img src="https://i.ibb.co/JBm55Gq/AVL-Trees.png" alt="enter image description here"></p>
 <p><strong>Utilité :</strong> Permet de realiser des insertions, supressions et recherche de complexité logarithmique O(log(n)). AVL assure un déquilibrage de maximum 2 niveau.</p>
 <h1 id="data-compression">12. Data compression</h1>
+<h2 id="run-length-encoding">12.1 Run-length encoding</h2>
+<h2 id="variable-length-code">12.2 Variable-length code</h2>
 <h1 id="absract-data-type-adt">13. Absract Data Type (ADT)</h1>
 <p><strong>Définition :</strong> L’objectif d’un type abstrait de données (TAD, ou ADT en anglais) est de cacher les détails d’implémentation de la structure de données, tout en modélisant le monde réel. Les changements d’implémentation de TAD doivent être indépendants du reste du programme, et celui-ci est auto-documenté. Les opérations réalisables avec chaque TAD sont définies dans son interface. Les noms de TAD sont représentatifs de leurs fonctionnalités ; Nous en avons déjà rencontré quelques un : comme par exemple la pile et la file qui peuvent s’implémenter de différentes façons.</p>
 <p><strong>Exemples de TAD :</strong><br>
@@ -109,5 +136,5 @@ L’implémentation peut se faire avec une liste simplement ou doublement chaîn
 <li>entries() est un itérateur sur les paires clé-valeurs<br>
 L’implémentation peut se faire avec une liste chaînée ordonnée ou non ou une liste à saut (skipList).</li>
 </ul>
-<h1 id="error-detection">14. Error Detection</h1>
+<h1 id="error-detecting-codes">14. Error-Detecting Codes</h1>
 
