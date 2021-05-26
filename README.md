@@ -114,20 +114,31 @@ On a les trois pointeurs suivant : <code>*head</code>, <code>*tail</code> et <co
 <p>Une fois les trois actions <code>LVR</code> executés pour l’èlèment le plus de l’arbre on passe à l’élément qui le précède. On peut direcrement passer à l’action <code>VISIT</code> puisque celui-ci à déja utilisé son <code>LEFT</code>. Il executera ensuite son <code>RIGHT</code> pour descendre dans ses enfants. Ces derniers executeront leur <code>LVR</code> jusqu’a remonter chez son parent.</p>
 <p>On remonte ainsi jusqu’à la racine qui une fois “visité” passera à son <code>RIGHT</code> pour à son tour faire executer les <code>LVR</code> de tout ses enfants.</p>
 <h1 id="binary-search-trees-2">10. Binary Search Trees (2)</h1>
-<p><strong>Manipulation par rotation :</strong><br>
-<strong>Déséquilibrage :</strong></p>
+<p><strong>Manipulation par rotation :</strong></p>
+<ul>
+<li>On peut effectuer des rotation à droite,  de manière à ce que le parent (avec son enfant de droite <code>R</code>) vienne s’accrocher à la droite de son enfant de gauche en <code>Q</code> sur la figure (a). Ainsi l’enfant de gauche peut prendre la place du père. Cette manière de procéder permet de garder un arbre trié.<br>
+<img src="https://i.ibb.co/bKCFTDH/Rotation-droite.png" alt="enter image description here"></li>
+<li>On peut effectuer des rotations à gauche en faisant l’opossé des actions décrite plus haut.</li>
+</ul>
+<p><strong>Déséquilibrage :</strong></p>
 <ul>
 <li><strong>Problème :</strong> Lorsqu’on manipule l’arbre en y insérant/supprimant des éléments on peut introduire un déséquilibre dû au nombre de noeuds différent à gauche et à droite d’un parent.<br>
 <img src="https://i.ibb.co/VDpmv1D/D-s-quilibre.png" alt="enter image description here"></li>
-<li><strong>Solution :</strong> Il existe différentes méthode d’équilibrage comme les arbres <a href="#11-avl-trees">AVL</a></li>
+<li><strong>Solutions :</strong> Il existe différentes méthodes d’équilibrage à base de rotation comme les arbres <a href="#11-avl-trees">AVL</a></li>
 </ul>
 <h1 id="avl-trees">11. AVL Trees</h1>
 <p><strong>Principe :</strong> c’est un algorithme qui permet de rendre un arbre équilibré en associant aux différents noeuds des niveaux de désiquilibrede l’arbre. <code>+n</code> et <code>-n</code> lors d’un déséquilibre à droite ou à gauche et <code>0</code> lorsque le noeud est équilibré. À partir d’un déséquilibre de <code>+2</code>ou <code>-2</code>, l’arbre va effectuer une rotation classique afin de rééquilibrer.</p>
 <p><img src="https://i.ibb.co/JBm55Gq/AVL-Trees.png" alt="enter image description here"></p>
 <p><strong>Utilité :</strong> Permet de realiser des insertions, supressions et recherche de complexité logarithmique O(log(n)). AVL assure un déquilibrage de maximum 2 niveau.</p>
 <h1 id="data-compression">12. Data compression</h1>
-<h2 id="run-length-encoding">12.1 Run-length encoding</h2>
-<h2 id="variable-length-code">12.2 Variable-length code</h2>
+<h2 id="run-length-encoding">12.1 Run-length Encoding</h2>
+<p>Lorsque l’on code par plage, on va essayer de noter plusieurs caractères qui se suivent d’une manière différente.</p>
+<ul>
+<li>En contant le nombre de répétition d’un caractère, un message composé uniquement de lettre <code>AAAABBAAACCCCCB</code> devient <code>4A2B3A5CB</code>. On constate un gain de place évident.</li>
+<li>Si le message contient des caractères alpha-numériques, on vient placer un caractère d’échapement (Escape) <code>Z</code> devant un chiffre pour signifier qu’il indique le nombre d’apparation de la lettre juste à côte. Le message <code>4AAAA5BBB</code> devient <code>4</code><strong>Z4</strong><code>A5</code><strong>Z3</strong><code>B</code>. On constate avec cette méthode que si une lettre se répète moins de 3 fois, on va préférer garder la répétition. <code>BB</code> n’a aucun intérêt à devenir <code>Z2B</code>.</li>
+</ul>
+<h2 id="variable-length-code">12.2 Variable-length Code</h2>
+<p>On va coder des caractères très fréquents sur moins de bits que des caractères plus rares. En prenant le cas du français on codera la lettre <code>E</code> sur 4 bits car très susceptible d’apparaitre et la lettre <code>Z</code> sur 13 bits car beaucoup moins suceptible d’aparaitre. On optimise ainsi l’espace.</p>
 <h1 id="absract-data-type-adt">13. Absract Data Type (ADT)</h1>
 <p><strong>Définition :</strong> L’objectif d’un type abstrait de données (TAD, ou ADT en anglais) est de cacher les détails d’implémentation de la structure de données, tout en modélisant le monde réel. Les changements d’implémentation de TAD doivent être indépendants du reste du programme, et celui-ci est auto-documenté. Les opérations réalisables avec chaque TAD sont définies dans son interface. Les noms de TAD sont représentatifs de leurs fonctionnalités ; Nous en avons déjà rencontré quelques un : comme par exemple la pile et la file qui peuvent s’implémenter de différentes façons.</p>
 <p><strong>Exemples de TAD :</strong><br>
