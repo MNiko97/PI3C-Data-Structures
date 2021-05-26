@@ -169,5 +169,6 @@ L’implémentation peut se faire avec une liste chaînée ordonnée ou non ou u
 consacre 2 bits à la détection d’erreur, on peut utiliser un modulo 4 (0, 1, 2 ou 3 càd en binaire 00, 01, 10 ou 11). Si au décodage, le modulo 4 est correct, cela signifie qu’il y a 0, 4, 8,… erreurs de transmission. Le 0 étant le plus probable surtout si le bloc transmis est de petite taille</p>
 <p><strong>En cas de détection :</strong> On peut constater que cette technique permet de détecter des erreurs mais pas de les corriger. A cette fin, …</p>
 <h1 id="bibliography">Bibliography</h1>
-<p>A. LORGE, <em>3BE Structures de données</em>, 2021</p>
+<p>A. LORGE, <em>3BE Structures de données</em>, 2021<br>
+A. LORGE, <a href="https://teams.microsoft.com/_#/school/files/General?threadId=19%3Adad3058aa849416991b553df80365ed6%40thread.tacv2&amp;ctx=channel&amp;context=Recordings&amp;rootfolder=%252Fsites%252F3BEPG3L-L1Projetcopier%252FDocuments%2520partages%252FGeneral%252FRecordings">Teams-Recordings</a>, 2021</p>
 
