@@ -41,8 +41,7 @@
 <p><img src="https://i.ibb.co/fY8rMXW/Heap-Sort.png" alt="enter image description here"></p>
 <h1 id="quicksort">4. QuickSort</h1>
 <p><strong>Principe :</strong> Consiste à choisir, parmi les données à trier, une valeur pivot et à s’arranger pour organiser les données selon quelles sont plus petites ou plus grande que cette valeur. A la fin de ce processus, le tableau à trier est virtuellement divisé en deux parties, d’une part les <code>x valeurs inférieures</code> au pivot et d’autre part les <code>y valeurs supérieures</code> à ce pivot. On recommence ensuite ce processus sur les <code>x premières valeurs</code> (choix d’une nouvelle valeur pivot), ce qui conduira à <em>"couper</em>" en deux ce demi-tableau et ainsi de suite jusqu’à ce que la taille du <em>"demi-demi-…-demi-tableau</em> ne contienne plus qu’un seul élément. On fait la même chose sur les <code>y valeurs</code> résultant du premier découpage. La vidéo <a href="https://youtu.be/PgBzjlCcFvc?t=30">suivante</a> illustre le principe.</p>
-<p><strong>Avantages :</strong> Complexité <code>O(n log(n))</code> ce qui est optimal pour un tri par comparaison. Dans le pire des cas la complexité est quadratique.<br>
-Efficace pour des des large quantité de données.</p>
+<p><strong>Avantages :</strong> Complexité <code>O(n log(n))</code> ce qui est optimal pour un tri par comparaison. Dans le pire des cas la complexité est quadratique. Efficace pour des des large quantité de données.</p>
 <p><strong>Inconvénients :</strong> Ne tire aucun avantage à ce que le vecteur soit en partie trié.</p>
 <h1 id="single-linked-list">5. Single Linked List</h1>
 <p><strong>Principe :</strong> Structure de données pouvant contenir plusieurs éléments. Chaque élément possède un pointeur vers l’élément suivant. La liste est un pointeur vers le premier élément de la liste appelé <strong>“Head”</strong>. Le dernier élément pointe vers une adresse spécifique pour signifier la fin de la liste, <strong>“Tail”</strong>.</p>
@@ -60,7 +59,8 @@ On a les trois pointeurs suivant : <code>*head</code>, <code>*tail</code> et <co
 <li>Ajout en fin de liste : on fait pointer <code>*tail</code> vers le nouvel élement et ce dernier vers la valeur <code>NULL</code>.<br>
 <img src="https://i.ibb.co/gwKxpT9/List-add-end.png" alt="enter image description here"></li>
 <li>Supression en début de liste : on fait pointer <code>*head</code> vers l’élément juste après. <img src="https://i.ibb.co/wgbFWNs/List-remove-first.png" alt="enter image description here"></li>
-<li>Suppression en fin de liste : comme on n’a pas de pointeur sur l’avant dernier élément, on va devoir parcourir la liste séquentiellement jusqu’a ce que le prochain élement est <code>NULL</code>. Ainsi on peut selectionner l’avant dernier élément et le faire pointer sur <code>NULL</code>. <img src="https://i.ibb.co/p3DDN1s/List-remove-end.png" alt="enter image description here"></li>
+<li>Suppression en fin de liste : comme on n’a pas de pointeur sur l’avant dernier élément, on va devoir parcourir la liste séquentiellement jusqu’a ce que le prochain élement est <code>NULL</code>. Ainsi on peut selectionner l’avant dernier élément et le faire pointer sur <code>NULL</code>.<br>
+<img src="https://i.ibb.co/p3DDN1s/List-remove-end.png" alt="enter image description here"></li>
 </ol>
 <h1 id="double-linked-list-and-circular-list">6. Double Linked List and Circular List</h1>
 <h2 id="double-linked-list">6.1 Double Linked List</h2>
@@ -101,10 +101,10 @@ On a les trois pointeurs suivant : <code>*head</code>, <code>*tail</code> et <co
 <img src="https://i.ibb.co/Ycz44zP/Delete-Node.png" alt="enter image description here"></li>
 <li>Si on veut effacer un noeud qui posède un seul enfant, il faudra relier cet <em>“orphelin”</em> au parent du noeud et puis supprimer ce noeud en faisant pointer son parent vers <code>NULL</code>.<br>
 <img src="https://i.ibb.co/B2g5ycQ/Delete-Node-one-child.png" alt="enter image description here"></li>
-<li>Si on veut effacer un noeud possédant 2 enfants, il faut dans un premier temps créer un pointeur temporaire <code>tmp</code> sur l’enfant de gauche. Ce pointeur va ensuite voyager jusqu’à pointer la valeur la plus à droite de cet enfant. On peut ensuite accrocher l’enfant de droite du noeud au pointeur <code>tmp</code> puisque les élements à droite sont toujours plus grands que ceux à gauche. Une fois l’enfant de droite <em>“adopté”</em> on peut raccorder l’enfant de gauche au parent du noeud à supprimer. Et terminer par supprimer le noeud en faisant pointer son parent vers <code>NULL</code><br>
+<li>Si on veut effacer un noeud possédant 2 enfants, il faut dans un premier temps créer un pointeur temporaire <code>tmp</code> sur l’enfant de gauche. Ce pointeur va ensuite voyager jusqu’à pointer la valeur la plus à droite de cet enfant. On peut ensuite accrocher l’enfant de droite du noeud au pointeur <code>tmp</code> puisque les élements à droite sont toujours plus grands que ceux à gauche. Une fois l’enfant de droite <em>“adopté”</em> on peut raccorder l’enfant de gauche au parent du noeud à supprimer. Et terminer par supprimer le noeud en faisant pointer son parent vers <code>NULL</code>.<br>
 <img src="https://i.ibb.co/Db9ydSv/Delete-Node-two-children.png" alt="enter image description here"></li>
 </ul>
-<p><strong>Mode de parcours :</strong> on parle de parcours infixe ou encore LVR (Left Visit Right). Chaque case de l’arbre posède une sorte de sets d’action à executer: <code>LVR</code>. Lorsqu’on parcours l’arbre, on commence par la racine qui a un pointeur. Prenons l’exemple suivant:</p>
+<p><strong>Mode de parcours :</strong> on parle de parcours infixe ou encore LVR (Left Visit Right). Chaque case de l’arbre posède une sorte de sets d’action à executer: <code>LVR</code>. Lorsqu’on parcours l’arbre, on commence par la racine qui a un pointeur. Prenons l’exemple suivant :</p>
 <p><img src="https://i.ibb.co/fVRcGMJ/LVR.png" alt="enter image description here"></p>
 <ol>
 <li>On commence par l’action <code>LEFT</code> de la racine qui consiste à pointer l’enfant à gauche. On descends dans l’arbre en exucant le <code>LEFT</code> de chaque enfant jusqu’a ce qu’on ne peux plus aller à gauche.</li>
@@ -129,7 +129,7 @@ On a les trois pointeurs suivant : <code>*head</code>, <code>*tail</code> et <co
 <h1 id="avl-trees">11. AVL Trees</h1>
 <p><strong>Principe :</strong> c’est un algorithme qui permet de rendre un arbre équilibré en associant aux différents noeuds des niveaux de désiquilibrede l’arbre. <code>+n</code> et <code>-n</code> lors d’un déséquilibre à droite ou à gauche et <code>0</code> lorsque le noeud est équilibré. À partir d’un déséquilibre de <code>+2</code>ou <code>-2</code>, l’arbre va effectuer une rotation classique afin de rééquilibrer.</p>
 <p><img src="https://i.ibb.co/JBm55Gq/AVL-Trees.png" alt="enter image description here"></p>
-<p><strong>Utilité :</strong> Permet de realiser des insertions, supressions et recherche de complexité logarithmique O(log(n)). AVL assure un déquilibrage de maximum 2 niveau.</p>
+<p><strong>Utilité :</strong> Permet de realiser des insertions, supressions et recherche de complexité logarithmique O(log(n)). AVL assure un déquilibrage de maximum 2 niveaux.</p>
 <h1 id="data-compression">12. Data compression</h1>
 <h2 id="run-length-encoding">12.1 Run-length Encoding</h2>
 <p>Lorsque l’on code par plage, on va essayer de noter plusieurs caractères qui se suivent d’une manière différente.</p>
@@ -165,9 +165,8 @@ L’implémentation peut se faire avec une liste chaînée ordonnée ou non ou u
 <h1 id="error-detecting-codes">14. Error-Detecting Codes</h1>
 <p><strong>Principe :</strong> Afin de garantir la fiabilité des informations lors d’une transmission de données, on y introduit suffisament de redondance par un codage de correction.</p>
 <p>Le cas le plus simple est l’utilisation d’un bit de parité. On ajoute pour chaque bloc de n bits un bit qui est la somme (sans report) des bits du bloc (1+1=0). Ce système permet de détecter si un <code>nombre impaire</code> de bit est <code>incorrect</code> dans le bloc. En cas de nombre pair d’erreurs, le bit de parité sera correct. Ce système consiste donc à ajouter au bloc de bits à transmettre le modulo 2 (0 ou 1) de ce bloc.</p>
-<p><strong>Améliorer le nombre de détections :</strong> Si l’on<br>
-consacre 2 bits à la détection d’erreur, on peut utiliser un modulo 4 (0, 1, 2 ou 3 càd en binaire 00, 01, 10 ou 11). Si au décodage, le modulo 4 est correct, cela signifie qu’il y a 0, 4, 8,… erreurs de transmission. Le 0 étant le plus probable surtout si le bloc transmis est de petite taille</p>
-<p><strong>En cas de détection :</strong> On peut constater que cette technique permet de détecter des erreurs mais pas de les corriger. A cette fin, …</p>
+<p><strong>Améliorer le nombre de détections :</strong> Si l’on consacre 2 bits à la détection d’erreur, on peut utiliser un modulo 4 (0, 1, 2 ou 3 càd en binaire 00, 01, 10 ou 11). Si au décodage, le modulo 4 est correct, cela signifie qu’il y a 0, 4, 8,… erreurs de transmission. Le 0 étant le plus probable surtout si le bloc transmis est de petite taille.</p>
+<p><strong>En cas de détection :</strong> On peut constater que cette technique permet de détecter des erreurs mais pas de les corriger. Si le code détecteur est assez développé il peut corriger l’erreur comme le <code>codage de Huffman</code>. Autrement une solution plus simple consiste à demander de renvoyer le message.</p>
 <h1 id="bibliography">Bibliography</h1>
 <p>A. LORGE, <em>3BE Structures de données</em>, 2021<br>
 A. LORGE, <a href="https://teams.microsoft.com/_#/school/files/General?threadId=19%3Adad3058aa849416991b553df80365ed6%40thread.tacv2&amp;ctx=channel&amp;context=Recordings&amp;rootfolder=%252Fsites%252F3BEPG3L-L1Projetcopier%252FDocuments%2520partages%252FGeneral%252FRecordings">Teams-Recordings</a>, 2021</p>
