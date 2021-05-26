@@ -10,26 +10,26 @@
 </ul>
 <h1 id="selection-and-insertion-sorts">1. Selection and Insertion Sorts</h1>
 <h2 id="selection">1.1 Selection</h2>
-<p><strong>Principe :</strong> On recherche la position de la plus petite valeur de clé et on vient échanger sa position avec le premier élément. On considère ensuite uniquement la partie du vecteur non trié et on recommence jusqu’à ce que la liste soit complétement trié.</p>
+<p><strong>Principe :</strong> On recherche la position de la plus petite valeur de clé et on vient échanger sa position avec le premier élément. On considère ensuite uniquement la partie du vecteur non triée et on recommence jusqu’à ce que la liste soit complétement triée.</p>
 <p><img src="https://i.ibb.co/gDKzKkn/Selection-Sort.png" alt="Selection Sort"></p>
 <p><strong>Complexité :</strong> O(n²) Maximum N²/2 comparaisons et N-1 échanges.</p>
-<p><strong>Avantage :</strong> Le nombre d’échange est intéressant si le temps est un argument.</p>
+<p><strong>Avantage :</strong> Le nombre d’échanges est intéressant si le temps est un argument.</p>
 <h2 id="insertion">1.2 Insertion</h2>
-<p><strong>Principe :</strong> On considère le vecteur en deux parties : triée et non-triée. La partie triée ne contient au départ que la première valeur du tableau. On vient prendre la première valeur de la partie non triée et l’insérer au bon endroit dans la partie triée. Cela consiste à faire une place dans la partie triée en décalant d’une position les éléments plus grands que la valeur à insérer.</p>
+<p><strong>Principe :</strong> On considère le vecteur en deux parties : triée et non-triée. La partie triée ne contient au départ que la première valeur du tableau. On vient prendre la première valeur de la partie non-triée et l’insérer au bon endroit dans la partie triée. Cela consiste à faire une place dans la partie triée en décalant d’une position les éléments plus grands que la valeur à insérer.</p>
 <p><img src="https://i.ibb.co/W2WhCzy/Insertion-Sort.png" alt="Insertion Sort"></p>
 <p><strong>Complexité :</strong> O(n²)</p>
 <ul>
 <li>En moyenne : N²/4 comparaisons et N²/2 échanges</li>
-<li>Worst case : N²/2 comparaison et N²/2 échanges</li>
-<li>Best case : N comparaison et 0 échange (si le vecteur était déjà trié)</li>
+<li>Worst case : N²/2 comparaisons et N²/2 échanges</li>
+<li>Best case : N comparaisons et 0 échange (si le vecteur était déjà trié)</li>
 </ul>
-<p><strong>Avantage :</strong> Imbattable si le vecteur est déjà trié au départ et très rapide si le vecteur à trier est trié en partie.</p>
+<p><strong>Avantage :</strong> Imbattable si le vecteur est déjà trié au départ et très rapide si le vecteur à trier est partiellement trié.</p>
 <h1 id="shell-sort">2. Shell Sort</h1>
-<p><strong>Principe :</strong> Le tri shell se base sur le tri par insertion en essayant de minimiser son défaut de compléxité <code>O(n²)</code>. Le principe sera diviser le vecteur en <code>h sous vecteurs</code> afin d’effectuer des tris par sélection sur des plus petites portions. Une fois les <code>h tris</code> réalisé on vient reformer le vecteur initiale qui sera dans un état un peu plus trié. Comme le tris pas sélection est plus efficace dans ces situation la on peut obtenir des complixité entre <code>O(n²)</code> et <code>O(n log²(n))</code>.</p>
+<p><strong>Principe :</strong> Le tri shell se base sur le tri par insertion en essayant de minimiser son défaut de compléxité <code>O(n²)</code>. Le principe sera de diviser le vecteur en <code>h sous-vecteurs</code> afin d’effectuer des tris par sélection sur des plus petites portions. Une fois les <code>h tris</code> réalisé on vient reformer le vecteur initial qui sera dans un état un peu plus trié. Comme le tri par sélection est plus efficace dans ces situations-là, on peut obtenir une complexité entre <code>O(n²)</code> et <code>O(n log²(n))</code>.</p>
 <p><img src="https://i.ibb.co/jyBKKyC/Shell-sort.png" alt="enter image description here"></p>
-<p><strong>Choix de la valeur h :</strong> Habituellement, on utilise une formule pour calculer les valeurs de <code>h</code> des passes successives. Dans la pratique, on utilise une série de <code>h</code> décroissant en choisissant des valeurs qui assure un bon brassage des données à trier. Il faut éviter 1, 2, 4, 8, 16, … ou 1, 3, 9, 27, … parce qu’avant la dernière passe, les données des deux ou trois sous vecteurs de la passe précédente n’ont jamais été confrontées et il reste trop de désordre pour la dernière passe.</p>
-<p><strong>Avantages :</strong> Plus efficace que le tris par insertion classique.</p>
-<p><strong>Inconvénients :</strong> Algorithme plus complexe. Pas aussi efficace que d’autres méthodes de tris comme <code>quicksort</code>.</p>
+<p><strong>Choix de la valeur h :</strong> Habituellement, on utilise une formule pour calculer les valeurs de <code>h</code> des passes successives. Dans la pratique, on utilise une série de <code>h</code> décroissants en choisissant des valeurs qui assurent un bon brassage des données à trier. Il faut éviter 1, 2, 4, 8, 16, … ou 1, 3, 9, 27, … parce qu’avant la dernière passe, les données des deux ou trois-sous vecteurs de la passe précédente n’ont jamais été confrontées et il reste trop de désordre pour la dernière passe.</p>
+<p><strong>Avantages :</strong> Plus efficace que le tri par insertion classique.</p>
+<p><strong>Inconvénients :</strong> Algorithme plus complexe. Pas aussi efficace que d’autres méthodes de tris comme <code>QuickSort</code>.</p>
 <h1 id="heap-sort">3. Heap Sort</h1>
 <p><strong>Principe :</strong> Se base sur une vision arbre binaire du vecteur. Le premier élément du vecteur est la racine de l’arbre virtuel (indice 0). Le fils gauche se trouve à l’indice 1 et le fils droit à l’indice 2. Le fils gauche du fils gauche de la racine est en position 3 et le fils droit du fils gauche de la racine est à l’indice 4, etc. Si on prend un élément d’indice i, le fils gauche se trouve à l’indice <code>2*i+1</code> et le fils droit à l’indice <code>2*i+2</code>. De même, le père de l’élément à la position i sera à la position <code>(i-1)/2</code> (division entière évidemment). On peut donc considérer un vecteur comme étant un arbre binaire que l’on peut parcourir en descendant ou en montant. Un Heap (tas en français) est un arbre qui respecte <strong>une seule règle :</strong> <code>le père est toujours plus grand que ses deux fils.</code></p>
 <p>Les étape 2 et 3 ci-dessous sont répétées jusqu’à ce que le vecteur soit complétement trié :</p>
