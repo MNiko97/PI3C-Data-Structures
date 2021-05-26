@@ -79,17 +79,23 @@ On a les trois pointeurs suivant : <code>*head</code>, <code>*tail</code> et <co
 <li>La deuxième solution, plus complexe, est d’assigner à chaque ligne et colone un pointeur vers un liste qui peut elle même pointer vers d’autre liste.</li>
 </ul>
 <h1 id="stack-and-queue">8. Stack and Queue</h1>
-<p><strong>Principe :</strong> Variante des listes chainées ou on ne peut ajouter des nouveaux éléments seulement au début ou à la fin. Ils possèdent la même structure avec un pointeur vers l’élément suivant dont le dernier pointe vers <code>NULL</code>.</p>
+<p><strong>Principe :</strong> Variante des listes chainées où l’on ne peut ajouter des nouveaux éléments seulement en début ou en fin. Ils possèdent la même structure avec un pointeur vers l’élément suivant dont le dernier pointe vers <code>NULL</code>.</p>
 <ul>
-<li>Piles (Stack) : <code>Last In First Out</code>. On peut uniquement enlever le dernier élément ajouté.<br>
-<img src="https://i.ibb.co/SRpYDKk/Piles.png" alt="enter image description here"></li>
-<li>Files (Queue) : <code>First In First Out</code>. On peut uniquement enlever le premiere élément ajouté.<br>
-<img src="https://i.ibb.co/vHYdBc4/Files.png" alt="enter image description here"></li>
-</ul>
-<p><strong>Implementation :</strong></p>
-<ul>
-<li><strong>Vecteur :</strong> ?</li>
-<li><strong>Liste :</strong> ?</li>
+<li>
+<p>Piles (Stack) : <code>Last In First Out</code>.<br>
+<img src="https://i.ibb.co/SRpYDKk/Piles.png" alt="enter image description here"><br>
+<strong>Implementation :</strong><br>
+<strong>Vecteur :</strong> Pour utiliser le vecteur, il faudra prévoir une case pour mémoriser l’indice de la dernière valeur de la pile. La taille de la pile doit être connue lors de la création et est donc fixe.<br>
+<strong>Liste :</strong> Une liste simplement chainée dans laquelle on va ajouter/retirer en début de liste. Aucun parcours de la liste n’est nécessaire.</p>
+</li>
+<li>
+<p>Files (Queue) : <code>First In First Out</code>.<br>
+<img src="https://i.ibb.co/vHYdBc4/Files.png" alt="enter image description here"><br>
+<strong>Implementation :</strong><br>
+<strong>Vecteur :</strong> Le vecteur doit être circulaire. Grâce aux pointeurs <code>last</code> et <code>first</code> on va pouvoir ajouter en fin et retirer en début.  La taille doit être connue lors de la création et est donc fixe.<br>
+<img src="https://i.ibb.co/xfBTjyG/Implem-Vectoriel-File.png" alt="enter image description here"><br>
+<strong>Liste :</strong> Une liste simplement chainée dans laquelle on va pouvoir ajouter en fin et enlever en début de liste.</p>
+</li>
 </ul>
 <h1 id="binary-search-trees-1">9. Binary Search Trees (1)</h1>
 <p><strong>Principe :</strong> Lorsqu’on construit un arbre binaire on le fait de manière à ce qu’il soit trié, sinon aucun intérets. On insère les élements dans l’arbre dans l’ordre dans lequel ils arrivent et lorsque la case n’est pas libre, si on est plus petit que la case on place l’élèment à gauche et inversement à droite. Chaque élément on biensur un pointeur vers leur enfant de gauche et droite. Le pointeur est <code>NULL</code> si il n’a pas d’enfant.</p>
