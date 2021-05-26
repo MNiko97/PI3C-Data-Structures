@@ -1,0 +1,113 @@
+---
+
+
+---
+
+<h1 id="selection-and-insertion-sorts">1. Selection and Insertion Sorts</h1>
+<h2 id="selection">1.1 Selection</h2>
+<p><strong>Principe :</strong> On recherche la position de la plus petite valeur de clé et on vient échanger sa position avec le premier élément. On considère ensuite uniquement la partie du vecteur non trié et on recommence jusqu’à ce que la liste soit complétement trié.</p>
+<p><img src="https://i.ibb.co/gDKzKkn/Selection-Sort.png" alt="Selection Sort"></p>
+<p><strong>Complexité :</strong> O(n²) Maximum N²/2 comparaisons et N-1 échanges.</p>
+<p><strong>Avantage :</strong> Le nombre d’échange est intéressant si le temps est un argument.</p>
+<h2 id="insertion">1.2 Insertion</h2>
+<p><strong>Principe :</strong> On considère le vecteur en deux parties : triée et non-triée. La partie triée ne contient au départ que la première valeur du tableau. On vient prendre la première valeur de la partie non triée et l’insérer au bon endroit dans la partie triée. Cela consiste à faire une place dans la partie triée en décalant d’une position les éléments plus grands que la valeur à insérer.</p>
+<p><img src="https://i.ibb.co/W2WhCzy/Insertion-Sort.png" alt="Insertion Sort"></p>
+<p><strong>Complexité :</strong> O(n²)</p>
+<ul>
+<li>En moyenne : N²/4 comparaisons et N²/2 échanges</li>
+<li>Worst case : N²/2 comparaison et N²/2 échanges</li>
+<li>Best case : N comparaison et 0 échange (si le vecteur était déjà trié)</li>
+</ul>
+<p><strong>Avantage :</strong> Imbattable si le vecteur est déjà trié au départ et très rapide si le vecteur à trier est trié en partie.</p>
+<h1 id="shell-sort">2. Shell Sort</h1>
+<h1 id="heap-sort">3. Heap Sort</h1>
+<p><strong>Principe :</strong> Se base sur une vision arbre binaire du vecteur. Le premier élément du vecteur est la racine de l’arbre virtuel (indice 0). Le fils gauche se trouve à l’indice 1 et le fils droit à l’indice 2. Le fils gauche du fils gauche de la racine est en position 3 et le fils droit du fils gauche de la racine est à l’indice 4, etc. Si on prend un élément d’indice i, le fils gauche se trouve à l’indice 2<em>i+1 et le fils droit à l’indice 2</em>i+2. De même, le père de l’élément à la position i sera à la position (i-1)/2 (division entière évidemment). On peut donc considérer un vecteur comme étant un arbre binaire que l’on peut parcourir en descendant ou en montant. Un Heap (tas en français) est un arbre qui respecte <strong>une seule règle : le père est toujours plus grand que ses deux fils.</strong></p>
+<p>Les étape 2 et 3 ci-dessous sont répétées jusqu’à ce que le vecteur soit complétement trié :</p>
+<ol>
+<li>Le tri Heap consistera à transformer le vecteur cet arbre arbre virtuel en respectant la propriété Heap.</li>
+<li>Le plus grand élément du vecteur est alors à la position 0 et on l’échange avec la dernière position du vecteur, il est à sa place.</li>
+<li>Après chaque échange on restaure. Ce qui consiste à refaire respecter la propriété Heap dans notre arbe mais sans prendre en compte le dernier élèment qui lui est correctement placé. Après restauration, l’élément à l’indice 0 est le nouveau plus grand du vecteur, on l’échange avec l’avant dernière position du vecteur et il est à sa place.</li>
+</ol>
+<p><img src="https://i.ibb.co/fY8rMXW/Heap-Sort.png" alt="enter image description here"></p>
+<h1 id="quicksort">4. QuickSort</h1>
+<h1 id="single-linked-list">5. Single Linked List</h1>
+<p><strong>Principe :</strong> Structure de données pouvant contenir plusieurs éléments. Chaque élément possède un pointeur vers l’élément suivant. La liste est un pointeur vers le premier élément de la liste appelé <strong>“Head”</strong>. Le dernier élément pointe vers une adresse spécifique pour signifier la fin de la liste, <strong>“Tail”</strong>.</p>
+<p><strong>Avantage :</strong> Permet de stocker des valeurs de même type mais a une taille variable même après création. On peut y insérer ou supprimer des élèments.</p>
+<p><strong>Inconvénient :</strong></p>
+<ul>
+<li>À  nombre d’éléments égal, une liste chaînée occupe <strong>plus de mémoire</strong> car elle a besoin de stocker également les pointeurs.</li>
+<li>Pour accéder à un élément d’une liste chaînée, on est obligé de parcourir tous les maillons jusqu’au maillon recherché. Le <strong>temps d’accès</strong> est donc d’autant plus grand que l’élément recherché est loin dans la liste.</li>
+</ul>
+<p><strong>Ajout/suppression d’éléments :</strong><br>
+On a les trois pointeurs suivant : <code>*head</code>, <code>*tail</code> et <code>*tmp</code></p>
+<ol>
+<li>Ajout en début de liste : on demande à <code>*tmp</code> de pointer au même endroit que <code>*head</code>. Ensuite <code>*head</code> de pointer vers le nouvel élément et ce dernier de pointer au même endroit que <code>*tmp</code>.<br>
+<img src="https://i.ibb.co/GR8jYbB/List-add-first.png" alt="enter image description here"></li>
+<li>Ajout en fin de liste : on fait pointer <code>*tail</code> vers le nouvel élement et ce dernier vers la valeur <code>NULL</code>.<br>
+<img src="https://i.ibb.co/gwKxpT9/List-add-end.png" alt="enter image description here"></li>
+<li>Supression en début de liste : on fait pointer <code>*head</code> vers l’élément juste après. <img src="https://i.ibb.co/wgbFWNs/List-remove-first.png" alt="enter image description here"></li>
+<li>Suppression en fin de liste : comme on n’a pas de pointeur sur l’avant dernier élément, on va devoir parcourir la liste séquentiellement jusqu’a ce que le prochain élement est <code>NULL</code>. Ainsi on peut selectionner l’avant dernier élément et le faire pointer sur <code>NULL</code>. <img src="https://i.ibb.co/p3DDN1s/List-remove-end.png" alt="enter image description here"></li>
+</ol>
+<h1 id="double-linked-list">6. Double Linked List</h1>
+<h1 id="sparse-matrix">7. Sparse Matrix</h1>
+<p><strong>Le problème :</strong> Ce sont par définitions des grands tableaux contenant un grand nombre de case vide. Un problème de gaspillage de place apparait lorsque l’on essaye de regrouper un grand nombre d’informations et de catégories dans un seul tableau. Toute les cases ne peuvent être remplie.</p>
+<p><strong>Solutions :</strong></p>
+<ul>
+<li>Une première solution est de diviser la matrice en deux sous matrices. En effet en divisant le problème on va se retrouver avec des sous matrices moins vide. <a href="https://www.youtube.com/watch?v=V3TAtTtC4Xs">https://www.youtube.com/watch?v=V3TAtTtC4Xs</a></li>
+<li>La deuxième solution, plus complexe, est d’assigner à chaque ligne et colone un pointeur vers un liste qui peut elle même pointer vers d’autre liste.</li>
+<li></li>
+</ul>
+<h1 id="stack-and-queue">8. Stack and Queue</h1>
+<h1 id="binary-search-trees-1">9. Binary Search Trees (1)</h1>
+<p><strong>Principe :</strong> Lorsqu’on construit un arbre binaire on le fait de manière à ce qu’il soit trié, sinon aucun intérets. On insère les élements dans l’arbre dans l’ordre dans lequel ils arrivent et lorsque la case n’est pas libre, si on est plus petit que la case on place l’élèment à gauche et inversement à droite. Chaque élément on biensur un pointeur vers leur enfant de gauche et droite. Le pointeur est <code>NULL</code> si il n’a pas d’enfant.</p>
+<p><img src="https://i.ibb.co/BKF6Ny6/Binary-Search-Tree.png" alt="enter image description here"></p>
+<p><strong>Insertion d’un élément :</strong> Comme expliqué dans le principe de fonctionnement, lorsqu’on insère un nouvel élément on vient le placer tel que si la racine est occupé, il ira à droite si &gt; root ou à gauche si &lt; root. Et si la racine est libre il prendra tout simplement sa place.</p>
+<p><strong>Supression d’un élément :</strong> Nous avons 3 situations:</p>
+<ul>
+<li>En bout d’arbre c’est assez facile, il suffit de modifier le pointeur du parent du dernier noeud pour pointer vers <code>NULL</code>.<br>
+<img src="https://i.ibb.co/Ycz44zP/Delete-Node.png" alt="enter image description here"></li>
+<li>Si on veut effacer un noeud qui posède un seul enfant, il faudra relier cet <em>“orphelin”</em> au parent du noeud et puis supprimer ce noeud en faisant pointer son parent vers <code>NULL</code>.<br>
+<img src="https://i.ibb.co/B2g5ycQ/Delete-Node-one-child.png" alt="enter image description here"></li>
+<li>Si on veut effacer un noeud possédant 2 enfants, il faut dans un premier temps créer un pointeur temporaire <code>tmp</code> sur l’enfant de gauche. Ce pointeur va ensuite voyager jusqu’à pointer la valeur la plus à droite de cet enfant. On peut ensuite accrocher l’enfant de droite du noeud au pointeur <code>tmp</code> puisque les élements à droite sont toujours plus grands que ceux à gauche. Une fois l’enfant de droite <em>“adopté”</em> on peut raccorder l’enfant de gauche au parent du noeud à supprimer. Et terminer par supprimer le noeud en faisant pointer son parent vers <code>NULL</code><br>
+<img src="https://i.ibb.co/Db9ydSv/Delete-Node-two-children.png" alt="enter image description here"></li>
+</ul>
+<p><strong>Mode de parcours :</strong> on parle de parcours infixe ou encore LVR (Left Visit Right). Chaque case de l’arbre posède une sorte de sets d’action à executer: <code>LVR</code>. Lorsqu’on parcours l’arbre, on commence par la racine qui a un pointeur. Prenons l’exemple suivant:</p>
+<p><img src="https://i.ibb.co/fVRcGMJ/LVR.png" alt="enter image description here"></p>
+<ol>
+<li>On commence par l’action <code>LEFT</code> de la racine qui consiste à pointer l’enfant à gauche. On descends dans l’arbre en exucant le <code>LEFT</code> de chaque enfant jusqu’a ce qu’on ne peux plus aller à gauche.</li>
+<li>Pour ce dernier élément le <code>LEFT</code> à été executé on peut passer à son action <code>VISIT</code> qui consiste à consulter la valeur de la case.</li>
+<li>Ensuite on passe à l’action <code>RIGHT</code> consistant à pointer un enfant à droite s’il y en a biensur.</li>
+</ol>
+<p>Une fois les trois actions <code>LVR</code> executés pour l’èlèment le plus de l’arbre on passe à l’élément qui le précède. On peut direcrement passer à l’action <code>VISIT</code> puisque celui-ci à déja utilisé son <code>LEFT</code>. Il executera ensuite son <code>RIGHT</code> pour descendre dans ses enfants. Ces derniers executeront leur <code>LVR</code> jusqu’a remonter chez son parent.</p>
+<p>On remonte ainsi jusqu’à la racine qui une fois “visité” passera à son <code>RIGHT</code> pour à son tour faire executer les <code>LVR</code> de tout ses enfants.</p>
+<h1 id="binary-search-trees-2">10. Binary Search Trees (2)</h1>
+<h1 id="avl-trees">11. AVL Trees</h1>
+<p><strong>Principe :</strong> c’est un algorithme qui permet de rendre un arbre équilibré en associant aux différents noeuds des niveaux de désiquilibrede l’arbre. <code>+n</code> et <code>-n</code> lors d’un déséquilibre à droite ou à gauche et <code>0</code> lorsque le noeud est équilibré. À partir d’un déséquilibre de <code>+2</code>ou <code>-2</code>, l’arbre va effectuer une rotation classique afin de rééquilibrer.</p>
+<p><img src="https://i.ibb.co/JBm55Gq/AVL-Trees.png" alt="enter image description here"></p>
+<p><strong>Utilité :</strong> Permet de realiser des insertions, supressions et recherche de complexité logarithmique O(log(n)). AVL assure un déquilibrage de maximum 2 niveau.</p>
+<h1 id="data-compression">12. Data compression</h1>
+<h1 id="absract-data-type-adt">13. Absract Data Type (ADT)</h1>
+<p><strong>Définition :</strong> L’objectif d’un type abstrait de données (TAD, ou ADT en anglais) est de cacher les détails d’implémentation de la structure de données, tout en modélisant le monde réel. Les changements d’implémentation de TAD doivent être indépendants du reste du programme, et celui-ci est auto-documenté. Les opérations réalisables avec chaque TAD sont définies dans son interface. Les noms de TAD sont représentatifs de leurs fonctionnalités ; Nous en avons déjà rencontré quelques un : comme par exemple la pile et la file qui peuvent s’implémenter de différentes façons.</p>
+<p><strong>Exemples de TAD :</strong><br>
+<strong>1. Deque :</strong> Est une <code>file</code> à deux bouts, une séquence d’élément à laquelle on peut ajouter et enlever aux deux extrémités. Son interface propose au minimum les méthodes suivantes :</p>
+<ul>
+<li>IsEmpty()</li>
+<li>insertFirst(element)</li>
+<li>insertLast(element)</li>
+<li>removeFirst()</li>
+<li>removeLast()<br>
+L’implémentation peut se faire avec une liste simplement ou doublement chaînée avec pointeur de fin de liste.</li>
+</ul>
+<p><strong>2. Dictionnaire :</strong> Permet, comme le map le stockage de paires clé-valeur mais une clé peut être associée à plusieurs valeurs. Son interface propose au minimum les méthodes suivantes :</p>
+<ul>
+<li>Size() : nbr de paires clé-valeur</li>
+<li>isEmpty() pas une seule clé-valeur</li>
+<li>find(k) renvoie une valeur associée à la clé k (null si k n’existe pas dans le dictionnaire)</li>
+<li>findAll(k) renvoie un itérateur sur les valeur associées à la clé k (null si k n’existe pas dans le dictionnaire)</li>
+<li>insert(k,v) ajoute la paire clé-valeur (k,v)</li>
+<li>remove(k,v) supprime la clé-valeur</li>
+<li>entries() est un itérateur sur les paires clé-valeurs<br>
+L’implémentation peut se faire avec une liste chaînée ordonnée ou non ou une liste à saut (skipList).</li>
+</ul>
+<h1 id="error-detection">14. Error Detection</h1>
+
