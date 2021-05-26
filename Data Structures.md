@@ -135,7 +135,7 @@ On a les trois pointeurs suivant : <code>*head</code>, <code>*tail</code> et <co
 <p>Lorsque l’on code par plage, on va essayer de noter plusieurs caractères qui se suivent d’une manière différente.</p>
 <ul>
 <li>En contant le nombre de répétition d’un caractère, un message composé uniquement de lettre <code>AAAABBAAACCCCCB</code> devient <code>4A2B3A5CB</code>. On constate un gain de place évident.</li>
-<li>Si le message contient des caractères alpha-numériques, on vient placer un caractère d’échapement (Escape) <code>Z</code> devant un chiffre pour signifier qu’il indique le nombre d’apparation de la lettre juste à côte. Le message <code>4AAAA5BBB</code> devient <code>4</code><strong>Z4</strong><code>A5</code><strong>Z3</strong><code>B</code>. On constate avec cette méthode que si une lettre se répète moins de 3 fois, on va préférer garder la répétition. <code>BB</code> n’a aucun intérêt à devenir <code>Z2B</code>.</li>
+<li>Si le message contient des caractères alpha-numériques, on vient placer un caractère d’échapement (Escape) <code>Z</code> devant un chiffre pour signifier qu’il indique le nombre d’apparation de la lettre juste à côte. Le message <code>4AAAA5BBB</code> devient <code>4</code><em>Z4</em><code>A5</code><em>Z3</em><code>B</code>. On constate avec cette méthode que si une lettre se répète moins de 3 fois, on va préférer garder la répétition. <code>BB</code> n’a aucun intérêt à devenir <code>Z2B</code>.</li>
 </ul>
 <h2 id="variable-length-code">12.2 Variable-length Code</h2>
 <p>On va coder des caractères très fréquents sur moins de bits que des caractères plus rares. En prenant le cas du français on codera la lettre <code>E</code> sur 4 bits car très susceptible d’apparaitre et la lettre <code>Z</code> sur 13 bits car beaucoup moins suceptible d’aparaitre. On optimise ainsi l’espace.</p>
@@ -163,5 +163,11 @@ L’implémentation peut se faire avec une liste simplement ou doublement chaîn
 L’implémentation peut se faire avec une liste chaînée ordonnée ou non ou une liste à saut (skipList).</li>
 </ul>
 <h1 id="error-detecting-codes">14. Error-Detecting Codes</h1>
+<p><strong>Principe :</strong> Afin de garantir la fiabilité des informations lors d’une transmission de données, on y introduit suffisament de redondance par un codage de correction.</p>
+<p>Le cas le plus simple est l’utilisation d’un bit de parité. On ajoute pour chaque bloc de n bits un bit qui est la somme (sans report) des bits du bloc (1+1=0). Ce système permet de détecter si un <code>nombre impaire</code> de bit est <code>incorrect</code> dans le bloc. En cas de nombre pair d’erreurs, le bit de parité sera correct. Ce système consiste donc à ajouter au bloc de bits à transmettre le modulo 2 (0 ou 1) de ce bloc.</p>
+<p><strong>Améliorer le nombre de détections :</strong> Si l’on<br>
+consacre 2 bits à la détection d’erreur, on peut utiliser un modulo 4 (0, 1, 2 ou 3 càd en binaire 00, 01, 10 ou 11). Si au décodage, le modulo 4 est correct, cela signifie qu’il y a 0, 4, 8,… erreurs de transmission. Le 0 étant le plus probable surtout si le bloc transmis est de petite taille</p>
+<p><strong>En cas de détection :</strong> On peut constater que cette technique permet de détecter des erreurs mais pas de les corriger. A cette fin, …</p>
 <h1 id="bibliography">Bibliography</h1>
+<p>A. LORGE, <em>3BE Structures de données</em>, 2021</p>
 
