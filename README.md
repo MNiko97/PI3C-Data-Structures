@@ -3,6 +3,11 @@
 
 ---
 
+<h2 id="authors">Authors:</h2>
+<ul>
+<li>Nikola Mitrovic</li>
+<li>Sébastien Martinez</li>
+</ul>
 <h1 id="selection-and-insertion-sorts">1. Selection and Insertion Sorts</h1>
 <h2 id="selection">1.1 Selection</h2>
 <p><strong>Principe :</strong> On recherche la position de la plus petite valeur de clé et on vient échanger sa position avec le premier élément. On considère ensuite uniquement la partie du vecteur non trié et on recommence jusqu’à ce que la liste soit complétement trié.</p>
@@ -112,8 +117,9 @@ On a les trois pointeurs suivant : <code>*head</code>, <code>*tail</code> et <co
 <p><strong>Manipulation par rotation :</strong><br>
 <strong>Déséquilibrage :</strong></p>
 <ul>
-<li><strong>Problème :</strong></li>
-<li><strong>Solution :</strong></li>
+<li><strong>Problème :</strong> Lorsqu’on manipule l’arbre en y insérant/supprimant des éléments on peut introduire un déséquilibre dû au nombre de noeuds différent à gauche et à droite d’un parent.<br>
+<img src="https://i.ibb.co/VDpmv1D/D-s-quilibre.png" alt="enter image description here"></li>
+<li><strong>Solution :</strong> Il existe différentes méthode d’équilibrage comme les arbres <a href="#11-avl-trees">AVL</a></li>
 </ul>
 <h1 id="avl-trees">11. AVL Trees</h1>
 <p><strong>Principe :</strong> c’est un algorithme qui permet de rendre un arbre équilibré en associant aux différents noeuds des niveaux de désiquilibrede l’arbre. <code>+n</code> et <code>-n</code> lors d’un déséquilibre à droite ou à gauche et <code>0</code> lorsque le noeud est équilibré. À partir d’un déséquilibre de <code>+2</code>ou <code>-2</code>, l’arbre va effectuer une rotation classique afin de rééquilibrer.</p>
@@ -146,4 +152,5 @@ L’implémentation peut se faire avec une liste simplement ou doublement chaîn
 L’implémentation peut se faire avec une liste chaînée ordonnée ou non ou une liste à saut (skipList).</li>
 </ul>
 <h1 id="error-detecting-codes">14. Error-Detecting Codes</h1>
+<h1 id="bibliography">Bibliography</h1>
 
