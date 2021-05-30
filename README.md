@@ -10,7 +10,7 @@
 </ul>
 <h1 id="selection-and-insertion-sorts">1. Tris par sélection et insertion</h1>  
 Principe de chacun de ces tris, avantages et inconvénients de chacun ?  
-<h2 id="selection">1.1 Selection</h2>
+<h2 id="selection">1.1 Sélection</h2>
 <p><strong>Principe :</strong> On recherche la position de la plus petite valeur de clé et on vient échanger sa position avec le premier élément. On considère ensuite uniquement la partie du vecteur non triée et on recommence jusqu’à ce que la liste soit complètement triée.</p>
 <p><img src="https://i.ibb.co/gDKzKkn/Selection-Sort.png" alt="Selection Sort"></p>
 <p><strong>Complexité :</strong> O(n²) Maximum N²/2 comparaisons et N-1 échanges.</p>
